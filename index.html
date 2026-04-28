@@ -380,6 +380,106 @@
   footer p { font-size: 0.8rem; color: #6f6a62; letter-spacing: 0.05em; }
   footer p + p { margin-top: 6px; }
 
+  /* ---------- Instagram section ---------- */
+  .instagram-cta-wrap { text-align: center; max-width: 680px; margin: 0 auto; }
+  .instagram-icon-big { width: 56px; height: 56px; margin: 0 auto 20px; color: #c4c63a; }
+  .instagram-handle-link {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    letter-spacing: 0.22em;
+    color: #ece9d2;
+    margin-bottom: 28px;
+    border-bottom: 1px solid rgba(196,198,58,0.3);
+    padding-bottom: 4px;
+    transition: color .25s ease, border-color .25s ease;
+  }
+  .instagram-handle-link:hover { color: #c4c63a; border-color: #c4c63a; }
+
+  /* ---------- Member hover overlay ---------- */
+  .member-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 20%, rgba(5,8,3,0.94) 62%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 18px 14px;
+    opacity: 0;
+    transition: opacity .4s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .member-card:hover .member-overlay { opacity: 1; }
+  .member-overlay p { font-size: 0.75rem; line-height: 1.55; color: #d0ccbf; margin: 0; }
+
+  /* ---------- Tour / Gig list ---------- */
+  .gig-list { list-style: none; max-width: 800px; margin: 0 auto; }
+  .gig-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 22px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background .2s ease;
+  }
+  .gig-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+  .gig-item:hover { background: rgba(196,198,58,0.04); }
+  .gig-date {
+    font-family: 'Cinzel', serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
+    color: #c4c63a;
+    white-space: nowrap;
+  }
+  .gig-event { font-size: 0.95rem; color: #ece9d2; font-family: 'Cinzel', serif; letter-spacing: 0.06em; }
+  .gig-city { font-size: 0.76rem; color: #b8b3aa; margin-top: 4px; letter-spacing: 0.12em; text-transform: uppercase; }
+  @media (max-width: 480px) { .gig-item { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* ---------- Store ---------- */
+  .store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+  .product-card {
+    background: #0d100a;
+    border: 1px solid rgba(255,255,255,0.07);
+    overflow: hidden;
+    transition: all .35s ease;
+  }
+  .product-card:hover {
+    border-color: rgba(196,198,58,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.6);
+  }
+  .product-img {
+    width: 100%; aspect-ratio: 1 / 1;
+    background: #111410;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .product-img img { width: 72px; height: auto; opacity: 0.14; }
+  .product-body { padding: 18px 18px 22px; }
+  .product-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ece9d2;
+    margin-bottom: 8px;
+  }
+  .product-desc { font-size: 0.76rem; color: #b8b3aa; margin-bottom: 14px; line-height: 1.55; }
+  .product-price { font-family: 'Cinzel', serif; font-size: 1rem; color: #c4c63a; margin-bottom: 14px; }
+  .store-note {
+    text-align: center;
+    margin: 44px auto 0;
+    padding: 22px 28px;
+    border: 1px dashed rgba(196,198,58,0.28);
+    max-width: 560px;
+    background: rgba(0,0,0,0.2);
+  }
+  .store-note p { font-size: 0.88rem; }
+
   /* ---------- Reveal animation ---------- */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
   .reveal.in { opacity: 1; transform: none; }
@@ -453,6 +553,25 @@
   </a>
 </header>
 
+<!-- ========== INSTAGRAM / LATEST ========== -->
+<section id="instagram">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="divider"></div>
+      <div class="eyebrow" data-en="Follow Along" data-sl="Sledite nam">Follow Along</div>
+      <h2 data-en="Latest" data-sl="Najnovejše">Latest</h2>
+    </div>
+    <div class="instagram-cta-wrap reveal">
+      <svg class="instagram-icon-big" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      <p data-en="New music teasers, behind-the-scenes moments, and live updates — all on our Instagram." data-sl="Napovedniki nove glasbe, zakulisni posnetki in aktualne novosti — vse na našem Instagramu." style="font-size: 1rem; margin-bottom: 24px;">New music teasers, behind-the-scenes moments, and live updates — all on our Instagram.</p>
+      <a class="instagram-handle-link" href="https://www.instagram.com/edge_of_sins" target="_blank" rel="noopener">@edge_of_sins</a>
+      <div>
+        <a class="btn primary" href="https://www.instagram.com/edge_of_sins" target="_blank" rel="noopener" data-en="Open Instagram" data-sl="Odpri Instagram">Open Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ========== ABOUT ========== -->
 <section id="about">
   <div class="container">
@@ -488,35 +607,50 @@
     </div>
     <div class="members-grid">
       <div class="member-card reveal">
-        <div class="member-photo-wrap"><img src="Pictures and logos/member_nejc.jpg" alt="Nejc Hadalin" loading="lazy"></div>
+        <div class="member-photo-wrap">
+          <img src="Pictures and logos/member_nejc.jpg" alt="Nejc Hadalin" loading="lazy">
+          <div class="member-overlay"><p>The rhythmic engine of Edge of Sins. Nejc's hard-hitting, precise drumming has driven the band since the earliest days — anchoring every tempo shift with power and control.</p></div>
+        </div>
         <div class="member-info">
           <div class="member-name">Nejc Hadalin</div>
           <div class="member-role" data-en="Drums" data-sl="Bobni">Drums</div>
         </div>
       </div>
       <div class="member-card reveal">
-        <div class="member-photo-wrap"><img src="Pictures and logos/member_saso.jpg" alt="Sašo Bogataj" loading="lazy"></div>
+        <div class="member-photo-wrap">
+          <img src="Pictures and logos/member_saso.jpg" alt="Sašo Bogataj" loading="lazy">
+          <div class="member-overlay"><p>Sašo's driving basslines form the low-end backbone of the band's heaviness. Locking tight with the drums, his groove keeps the wall of sound in constant motion.</p></div>
+        </div>
         <div class="member-info">
           <div class="member-name">Sašo Bogataj</div>
           <div class="member-role" data-en="Bass" data-sl="Bas">Bass</div>
         </div>
       </div>
       <div class="member-card reveal">
-        <div class="member-photo-wrap"><img src="Pictures and logos/member_zigag.jpg" alt="Žiga Gladek" loading="lazy"></div>
+        <div class="member-photo-wrap">
+          <img src="Pictures and logos/member_zigag.jpg" alt="Žiga Gladek" loading="lazy">
+          <div class="member-overlay"><p>The voice of Edge of Sins. Žiga's range spans haunting melodic cleans to raw, scorching intensity — the emotional core of every song and every live performance.</p></div>
+        </div>
         <div class="member-info">
           <div class="member-name">Žiga Gladek</div>
           <div class="member-role" data-en="Vocals" data-sl="Vokal">Vocals</div>
         </div>
       </div>
       <div class="member-card reveal">
-        <div class="member-photo-wrap"><img src="Pictures and logos/member_zigakodre.jpg" alt="Žiga Kodre" loading="lazy"></div>
+        <div class="member-photo-wrap">
+          <img src="Pictures and logos/member_zigakodre.jpg" alt="Žiga Kodre" loading="lazy">
+          <div class="member-overlay"><p>Riffs, leads, and everything in between. Žiga's guitar work blends technical precision with raw emotion, always in service of the song's inner force.</p></div>
+        </div>
         <div class="member-info">
           <div class="member-name">Žiga Kodre</div>
           <div class="member-role" data-en="Guitar" data-sl="Kitara">Guitar</div>
         </div>
       </div>
       <div class="member-card reveal">
-        <div class="member-photo-wrap"><img src="Pictures and logos/member_blaz.jpg" alt="Blaž Hadalin" loading="lazy"></div>
+        <div class="member-photo-wrap">
+          <img src="Pictures and logos/member_blaz.jpg" alt="Blaž Hadalin" loading="lazy">
+          <div class="member-overlay"><p>Rhythm guitar and vocal harmonies. Blaž brings the crunch of heavy riffing alongside backing vocals, completing the twin-guitar attack that defines the band's heavier sound.</p></div>
+        </div>
         <div class="member-info">
           <div class="member-name">Blaž Hadalin</div>
           <div class="member-role" data-en="Guitar / Backing Vocals" data-sl="Kitara / spremljevalni vokal">Guitar / Backing Vocals</div>
@@ -600,12 +734,123 @@
       <div class="eyebrow" data-en="Live Shows" data-sl="Koncerti v živo">Live Shows</div>
       <h2 data-en="Tour Dates" data-sl="Datumi turneje">Tour Dates</h2>
     </div>
-    <div class="tour-empty reveal">
-      <img src="Pictures and logos/symbol_white.png" alt="" class="ornament">
-      <p data-en="No shows announced yet. Follow us on socials to be the first to know when we hit the stage." data-sl="Trenutno ni objavljenih koncertov. Sledite nam na družbenih omrežjih in bodite prvi obveščeni, ko stopimo na oder.">No shows announced yet. Follow us on socials to be the first to know when we hit the stage.</p>
-      <div style="margin-top: 28px;">
-        <a class="btn" href="https://www.instagram.com/edge_of_sins" target="_blank" rel="noopener" data-en="Follow on Instagram" data-sl="Sledite na Instagramu">Follow on Instagram</a>
+    <ul class="gig-list reveal">
+      <li class="gig-item">
+        <div class="gig-date">21. 02. 2026</div>
+        <div class="gig-info">
+          <div class="gig-event">Swenak</div>
+          <div class="gig-city">Idrija</div>
+        </div>
+      </li>
+      <li class="gig-item">
+        <div class="gig-date">13. 03. 2026</div>
+        <div class="gig-info">
+          <div class="gig-event">Metalnight</div>
+          <div class="gig-city">Kamnik</div>
+        </div>
+      </li>
+      <li class="gig-item">
+        <div class="gig-date">25. 04. 2026</div>
+        <div class="gig-info">
+          <div class="gig-event">CMAK</div>
+          <div class="gig-city">Cerkno</div>
+        </div>
+      </li>
+      <li class="gig-item">
+        <div class="gig-date">15. 05. 2026</div>
+        <div class="gig-info">
+          <div class="gig-event">KoD Menza</div>
+          <div class="gig-city">Ljubljana</div>
+        </div>
+      </li>
+      <li class="gig-item">
+        <div class="gig-date">12. 06. 2026</div>
+        <div class="gig-info">
+          <div class="gig-event">Plunpitk Metalnight</div>
+          <div class="gig-city">Idrija</div>
+        </div>
+      </li>
+      <li class="gig-item">
+        <div class="gig-date">20. 06. 2026</div>
+        <div class="gig-info">
+          <div class="gig-event">Release Party — Bratva</div>
+          <div class="gig-city">Novo Mesto</div>
+        </div>
+      </li>
+      <li class="gig-item">
+        <div class="gig-date">27. 08. 2026</div>
+        <div class="gig-info">
+          <div class="gig-event">Kunigunda Festival</div>
+          <div class="gig-city">Velenje</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== STORE ========== -->
+<section id="store">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="divider"></div>
+      <div class="eyebrow" data-en="Merchandise" data-sl="Merchandise">Merchandise</div>
+      <h2 data-en="Store" data-sl="Trgovina">Store</h2>
+    </div>
+    <div class="store-grid">
+
+      <div class="product-card reveal">
+        <div class="product-img"><img src="Pictures and logos/symbol_white.png" alt=""></div>
+        <div class="product-body">
+          <div class="product-name" data-en="Logo Tee" data-sl="Majica z logotipom">Logo Tee</div>
+          <div class="product-desc" data-en="Classic black tee with the Edge of Sins emblem. 100% cotton, unisex cut." data-sl="Klasična črna majica z znakom Edge of Sins. 100% bombaž, unisex kroj.">Classic black tee with the Edge of Sins emblem. 100% cotton, unisex cut.</div>
+          <div class="product-price">€25</div>
+          <button class="btn" style="width:100%; justify-content:center;" data-en="Coming Soon" data-sl="Kmalu na voljo">Coming Soon</button>
+        </div>
       </div>
+
+      <div class="product-card reveal">
+        <div class="product-img"><img src="Pictures and logos/symbol_white.png" alt=""></div>
+        <div class="product-body">
+          <div class="product-name" data-en="My Escape Tee" data-sl="My Escape majica">My Escape Tee</div>
+          <div class="product-desc" data-en="Debut album anniversary design on premium heavyweight cotton." data-sl="Dizajn ob obletnici prvega albuma. Tisk na kakovostnem težkem bombaž.">Debut album anniversary design on premium heavyweight cotton.</div>
+          <div class="product-price">€25</div>
+          <button class="btn" style="width:100%; justify-content:center;" data-en="Coming Soon" data-sl="Kmalu na voljo">Coming Soon</button>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-img"><img src="Pictures and logos/symbol_white.png" alt=""></div>
+        <div class="product-body">
+          <div class="product-name" data-en="Metal Socks" data-sl="Metal nogavice">Metal Socks</div>
+          <div class="product-desc" data-en="EoS skull-pattern crew socks. Reinforced heel and toe, one size fits most." data-sl="Nogavice z vzorcem EoS. Ojačana peta in prsti, ena velikost.">EoS skull-pattern crew socks. Reinforced heel and toe, one size fits most.</div>
+          <div class="product-price">€10</div>
+          <button class="btn" style="width:100%; justify-content:center;" data-en="Coming Soon" data-sl="Kmalu na voljo">Coming Soon</button>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-img"><img src="Pictures and logos/symbol_white.png" alt=""></div>
+        <div class="product-body">
+          <div class="product-name" data-en="EoS Snapback" data-sl="EoS kapa s šiltom">EoS Snapback</div>
+          <div class="product-desc" data-en="Structured snapback with embroidered band symbol. Adjustable fit." data-sl="Strukturirana kapa z vezenem simbolom benda. Nastavljiva velikost.">Structured snapback with embroidered band symbol. Adjustable fit.</div>
+          <div class="product-price">€22</div>
+          <button class="btn" style="width:100%; justify-content:center;" data-en="Coming Soon" data-sl="Kmalu na voljo">Coming Soon</button>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-img"><img src="Pictures and logos/symbol_white.png" alt=""></div>
+        <div class="product-body">
+          <div class="product-name" data-en="EoS Beanie" data-sl="EoS kapa">EoS Beanie</div>
+          <div class="product-desc" data-en="Knitted winter beanie with woven EoS logo label. Warm and snug." data-sl="Pletena zimska kapa z vgraviranim logotipom EoS. Topla in udobna.">Knitted winter beanie with woven EoS logo label. Warm and snug.</div>
+          <div class="product-price">€18</div>
+          <button class="btn" style="width:100%; justify-content:center;" data-en="Coming Soon" data-sl="Kmalu na voljo">Coming Soon</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="store-note reveal">
+      <p data-en="Store launching soon. Follow us on Instagram to be the first to know when merch drops." data-sl="Trgovina kmalu odpira svoja vrata. Sledite nam na Instagramu, da boste prvi izvedeli, ko bo merchandise na voljo.">Store launching soon. Follow us on Instagram to be the first to know when merch drops.</p>
     </div>
   </div>
 </section>
