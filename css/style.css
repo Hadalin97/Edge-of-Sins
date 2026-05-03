@@ -125,6 +125,14 @@ nav ul a:hover::after { width: 100%; }
   filter: contrast(1.05) brightness(0.5);
   z-index: 0;
 }
+/* On narrow screens the landscape photo zooms in so much only the singer shows.
+   Zoom out so the full band is visible; the photo's black bg blends with the page. */
+@media (max-width: 600px) {
+  .hero-bg {
+    background-size: 200%;
+    background-position: center 15%;
+  }
+}
 .hero-bg::after {
   content: '';
   position: absolute; inset: 0;
