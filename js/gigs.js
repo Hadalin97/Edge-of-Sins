@@ -16,7 +16,9 @@ const GIGS = [
   { date: '2026-05-15', label: '15. 05. 2026', event: 'KoD Menza',              city: 'Ljubljana'  },
   { date: '2026-06-12', label: '12. 06. 2026', event: 'Plunpitk Metalnight',    city: 'Idrija'     },
   { date: '2026-06-20', label: '20. 06. 2026', event: 'Release Party — Bratva', city: 'Novo Mesto' },
+  { date: '2026-08-07', label: '07. 08. 2026', event: 'GrandŠkalonja 2026',     city: 'Ajdovščina' },
   { date: '2026-08-27', label: '27. 08. 2026', event: 'Kunigunda Festival',     city: 'Velenje'    },
+  { date: '2026-08-29', label: '29. 08. 2026', event: 'Odprti oder',            city: 'Idrija'     },
 ];
 
 (function renderGigs() {
@@ -26,7 +28,16 @@ const GIGS = [
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  GIGS.forEach(gig => {
+  const sortedGigs = [...GIGS].sort((a, b) => {
+    const aPast = new Date(a.date) < today;
+    const bPast = new Date(b.date) < today;
+    if (aPast !== bPast) return aPast ? 1 : -1;
+    return aPast
+      ? new Date(b.date) - new Date(a.date)  // past: most recent first
+      : new Date(a.date) - new Date(b.date); // upcoming: soonest first
+  });
+
+  sortedGigs.forEach(gig => {
     const isPast = new Date(gig.date) < today;
     const li = document.createElement('li');
     li.className = 'gig-item' + (isPast ? ' gig-item--past' : '');
