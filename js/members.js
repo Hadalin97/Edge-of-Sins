@@ -1,5 +1,5 @@
 // ============================================================
-// BAND MEMBERS — edit roles here, or add/remove members.
+// BAND MEMBERS - edit roles here, or add/remove members.
 // photo: path from site root
 // role: displayed under the name (bilingual)
 // ============================================================

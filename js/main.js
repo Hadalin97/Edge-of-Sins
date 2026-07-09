@@ -13,7 +13,7 @@ navList?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => na
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Scroll reveal — runs after members/gigs/store scripts have rendered their elements
+// Scroll reveal - runs after members/gigs/store scripts have rendered their elements
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }

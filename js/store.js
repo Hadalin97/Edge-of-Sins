@@ -1,14 +1,14 @@
 // ============================================================
-// STORE PRODUCTS — add or edit merchandise here.
+// STORE PRODUCTS - add or edit merchandise here.
 //
 // To add a product, copy any object and fill in:
 //   name:      { en: '...', sl: '...' }
 //   desc:      { en: '...', sl: '...' }
 //   price:     '€XX'
-//   image:     'store/filename.png'  — or '' to show the placeholder symbol
+//   image:     'store/filename.png'  - or '' to show the placeholder symbol
 //   available: false  → "Coming Soon" button (inactive)
-//              true   → "Buy Now" button (active — also set buyUrl below)
-//   buyUrl:    'https://...'  — link when available: true (can omit when false)
+//              true   → "Buy Now" button (active - also set buyUrl below)
+//   buyUrl:    'https://...'  - link when available: true (can omit when false)
 // ============================================================
 const PRODUCTS = [
   {

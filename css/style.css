@@ -322,7 +322,7 @@ nav ul a:hover::after { width: 100%; }
 .gig-city { font-size: 0.76rem; color: #b8b3aa; margin-top: 4px; letter-spacing: 0.12em; text-transform: uppercase; }
 @media (max-width: 480px) { .gig-item { grid-template-columns: 1fr; gap: 4px; } }
 
-/* Past gig styling — automatically applied by gigs.js */
+/* Past gig styling - automatically applied by gigs.js */
 .gig-item--past { opacity: 0.45; }
 .gig-item--past .gig-date { color: #6f6a62; }
 .gig-item--past .gig-event { text-decoration: line-through; text-decoration-color: rgba(255,255,255,0.25); }
