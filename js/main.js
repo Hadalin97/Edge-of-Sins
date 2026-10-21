@@ -43,8 +43,10 @@ function setLang(lang) {
 
 langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
 
-// Restore saved language preference
+// Apply saved language preference, defaulting to English
+let initialLang = 'en';
 try {
   const saved = localStorage.getItem('eos_lang');
-  if (saved === 'sl' || saved === 'en') setLang(saved);
+  if (saved === 'sl' || saved === 'en') initialLang = saved;
 } catch (e) {}
+setLang(initialLang);
